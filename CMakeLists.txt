@@ -7,7 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_BUILD_TYPE Debug)
 
 add_subdirectory(external/cpr)
-add_executable(DFCP src/main.cc)
+file(GLOB SRC_FILES src/*.cc)
+add_executable(DFCP ${SRC_FILES})
 target_link_libraries(DFCP PRIVATE cpr::cpr)
 
 if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
