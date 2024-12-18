@@ -7,9 +7,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_BUILD_TYPE Debug)
 
 add_subdirectory(external/cpr)
+add_subdirectory(external/tidy-html5)
+
 file(GLOB SRC_FILES src/*.cc)
 add_executable(DFCP ${SRC_FILES})
-target_link_libraries(DFCP PRIVATE cpr::cpr)
+target_link_libraries(DFCP PRIVATE cpr::cpr tidy-static)
 
 if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
   target_compile_options(DFCP PRIVATE -Wall -Wextra -pedantic)

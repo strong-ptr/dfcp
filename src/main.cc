@@ -1,12 +1,16 @@
-#include <cpr/cpr.h>
+#include "tidy.hh"
 #include <iostream>
-#include "ex.hh"
+#include <string>
 
-int main(int argc, char** argv) {
-    cpr::Response r = cpr::Get(cpr::Url{"https://api.github.com/repos/whoshuu/cpr/contributors"},
-                      cpr::Authentication{"user", "pass", cpr::AuthMode::BASIC},
-                      cpr::Parameters{{"anon", "true"}, {"key", "value"}});
-    std::cout << r.status_code << std::endl;                  // 200
-    f();
-    return 0;
+// Most important next steps:
+// - [ ] Implement logger
+// - [ ] Replace all prints with loggers
+
+int main() {
+  std::string input{"<title>Foo</title><p>Foo!"};
+  auto res{html_to_xhtml(input)};
+  if (res) {
+    std::cout << *res << std::endl;
+  }
+  return 0;
 }
