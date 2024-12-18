@@ -1,6 +1,6 @@
 Direct setup todos
 - [x] Add first external dependency
-- [ ] Add script to generate compilation database using modern cmake
+- [x] Add script to generate compilation database using modern cmake
 - [ ] add clang-tidy
 
 ## Formatting
